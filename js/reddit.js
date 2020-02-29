@@ -1,3 +1,5 @@
+// methods to grab memes from reddit
+
 fetch('https://www.reddit.com/r/memes/top.json?sort=top&t=day&limit=20')
 .then(res => res.json())
 .then(res => res.data.children)
@@ -13,9 +15,7 @@ fetch('https://www.reddit.com/r/memes/top.json?sort=top&t=day&limit=20')
 var slideIndex = 1;
 
 // Next/previous controls
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
+function plusSlides(n) { console.log("plusSlides!"); showSlides(slideIndex += n); }
   
 // Thumbnail image controls
 function currentSlide(n) { showSlides(slideIndex = n); }
@@ -26,26 +26,20 @@ function showSlides(n) {
     var dots = document.getElementsByClassName("dot");
     if (n > slides.length) {slideIndex = 1}
     if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
+    for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+    for (i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" active", ""); }
     slides[slideIndex-1].style.display = "block";
     dots[slideIndex-1].className += " active";
 }
 
+// incrementing and decrementing slides
 document.onkeydown = function(e) {
     e = e || window.event;
-    if (e.keyCode == '37') {
-        plusSlides(-1) //left <- show Prev image
-    } else if (e.keyCode == '39') {
-        // right -> show next image
-        plusSlides(1)
-    }
+    if (e.keyCode == '37') { plusSlides(-1) /*left <- show Prev image*/ } 
+    else if (e.keyCode == '39') { plusSlides(1) /* right -> show next image */ }
 }
 
+// rendering images from source
 const render = post => {
     const node = document.createElement('div');
     node.className = 'mySlides fade';
@@ -58,8 +52,15 @@ const render = post => {
     dots.className = "dot";
     document.getElementById('meme-dots').appendChild(dots);
     showSlides(slideIndex);
-
 }
-    
 
-
+function executeMemeRotation()
+{
+    var slides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < slides.length; i++) 
+    { 
+        //console.log("aye");
+        //setTimeout(function() { console.log("test"); }, 1000); 
+        setTimeout(plusSlides, 1000, 1);
+    }
+}

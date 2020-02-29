@@ -9,7 +9,7 @@ if (navigator.mediaDevices.getUserMedia) {
     .then(function (stream) { video.srcObject = stream; })
 .catch(function () { console.log("Something went wrong!"); }); }
 
-// trigger screenshot and download of webcam stream to pass to vision API
+// trigger screenshot of webcam stream to pass to vision API
 const btn = document.querySelector('button');
 btn.disabled = false;
 btn.onclick = e => {
@@ -27,6 +27,7 @@ function takeASnap(){
     });
 }
 
+// download screenshot that was taken 
 function download(blob){
     // uses the <a download> to download a Blob
     let a = document.createElement('a'); 

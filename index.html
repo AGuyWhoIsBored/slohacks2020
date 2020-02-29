@@ -4,7 +4,6 @@
         <title>Bet on Memes - SLO Hacks 2020</title>
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <link rel="stylesheet" type="text/css" href="css/slideshow.css">
-
     </head>
     <body>
         <h1 id="test">Bet on Memes - SLO Hacks 2020</h1>
@@ -16,8 +15,9 @@
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
                 <br>
             </div>
-            <span id="webcamStreamContainer"><video autoplay="true" id="webcamVideoStream"></video></span>
+            <span id="webcamStreamContainer"><video autoplay="true" id="webcamVideoStream" width="500" height="400"></video></span>
             <button disabled>Screenshot Webcam Stream</button>
+            <button onclick="executeMemeRotation()">Start meme rotation</button>
         </div>
 
         <script src="js/betonmemes.js"></script>
