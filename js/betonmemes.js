@@ -1,13 +1,13 @@
 
 /* all of the JS related to implementing the betonmemes program */
 
+// How to stream webcam: https://www.kirupa.com/html5/accessing_your_webcam_in_html5.htm
 // activate the webcam stream
 var video = document.querySelector("#webcamVideoStream");
 if (navigator.mediaDevices.getUserMedia) {
     navigator.mediaDevices.getUserMedia({ video: true })
     .then(function (stream) { video.srcObject = stream; })
 .catch(function () { console.log("Something went wrong!"); }); }
-
 
 // trigger screenshot and download of webcam stream to pass to vision API
 const btn = document.querySelector('button');

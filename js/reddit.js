@@ -18,9 +18,7 @@ function plusSlides(n) {
 }
   
 // Thumbnail image controls
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-}
+function currentSlide(n) { showSlides(slideIndex = n); }
   
 function showSlides(n) {
     var i;
@@ -53,7 +51,7 @@ const render = post => {
     node.className = 'mySlides fade';
     node.style = "display: none;"
     node.innerHTML = `
-        <img src="${post.link}" style="width: 100%"/>
+        <img src="${post.link}" style="width: 400px; height: 600px;"/>
         `;
     document.getElementById('memeDiv').appendChild(node);
     const dots = document.createElement('span');
