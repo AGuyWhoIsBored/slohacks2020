@@ -9,5 +9,8 @@
   "author": "dookan",
   "devDependencies": {
     "electron": "^8.0.2"
+  },
+  "dependencies": {
+    "@google-cloud/vision": "^1.9.0"
   }
 }

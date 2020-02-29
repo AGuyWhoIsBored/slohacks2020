@@ -1,15 +1,16 @@
-async function detectFaces() {
+
+module.exports = { 
+  detectFaces: async function detectFaces(fileName) {
     // [START vision_face_detection]
     // Imports the Google Cloud client library
     const vision = require('@google-cloud/vision');
   
     // Creates a client
-    const client = new vision.ImageAnnotatorClient();
+    const client = new vision.ImageAnnotatorClient({private_key: 'AIzaSyAkerEkMfagbvjbPoSeFZ_jPjdMpph1EeE'});
   
     /**
      * TODO(developer): Uncomment the following line before running the sample.
      */
-    const fileName = 'smilingface.jpg';
   
     const [result] = await client.faceDetection(fileName);
     const faces = result.faceAnnotations;
@@ -24,7 +25,4 @@ async function detectFaces() {
     return faces;
     // [END vision_face_detection]
   }
-  
-  detectFaces('smilingface.jpg');
-  
-  module.exports = app;
+}
