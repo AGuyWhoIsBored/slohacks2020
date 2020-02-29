@@ -2,11 +2,12 @@
 
 /* Slideshow container */
 .slideshow-container {
-    max-width: 500px;
-    max-height: 300px;
+    width: 400px;
+    height: 600px;
     position: relative;
-    margin: auto;
-    margin-top: 22px;
+    margin-left:auto;
+    margin-top: 10px;
+    float: left;
 }
 
 /* Hide the images by default */

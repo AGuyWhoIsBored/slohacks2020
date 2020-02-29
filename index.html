@@ -8,16 +8,18 @@
     </head>
     <body>
         <h1 id="test">Bet on Memes - SLO Hacks 2020</h1>
-        <div class="slideshow-container" id="memeDiv">
-            <div id="meme-dots" style="text-align:center"> </div>
-            <!-- Next and previous buttons -->
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-            <br>
+        <div class="content">
+            <div class="slideshow-container" id="memeDiv">
+                <div id="meme-dots" style="text-align:center"> </div>
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                <br>
+            </div>
+            <script src="js/reddit.js"></script>
+            <div id="webcamStreamContainer"><video autoplay="true" id="webcamVideoStream"></video></div>
+            <script src="js/betonmemes.js"></script>
         </div>
-        <script src="js/reddit.js"></script>
-        <div id="webcamStreamContainer"><video autoplay="true" id="webcamVideoStream"></video></div>
-        <script src="js/betonmemes.js"></script>
     </body>
 </html>
 

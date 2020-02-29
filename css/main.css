@@ -12,6 +12,14 @@ h1
     border: 2px solid #333333;
 }
 
+.content
+{
+    display: inline-block;
+    width: 90%;
+    text-align: center;
+    margin: auto;
+}
+
 /* styling for the meme image */
 #memeImage
 {
@@ -28,6 +36,7 @@ h1
     width: 500px;
     height: 400px;
     border: 10px #333 solid;
+    float: right;
 }
 #webcamVideoStream {
     width: 500px;
