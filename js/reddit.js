@@ -15,7 +15,7 @@ fetch('https://www.reddit.com/r/memes/top.json?sort=top&t=day&limit=20')
 var slideIndex = 1;
 
 // Next/previous controls
-function plusSlides(n) { console.log("plusSlides!"); showSlides(slideIndex += n); }
+function plusSlides(n) { showSlides(slideIndex += n); }
   
 // Thumbnail image controls
 function currentSlide(n) { showSlides(slideIndex = n); }
@@ -54,13 +54,7 @@ const render = post => {
     showSlides(slideIndex);
 }
 
-function executeMemeRotation()
-{
-    var slides = document.getElementsByClassName("mySlides");
-    for (i = 0; i < slides.length; i++) 
-    { 
-        //console.log("aye");
-        //setTimeout(function() { console.log("test"); }, 1000); 
-        setTimeout(plusSlides, 1000, 1);
-    }
-}
+// for meme rotations
+var memeTimerHandle = null;
+function startMemeRotation(interval) { memeTimerHandle = setInterval(plusSlides, interval, 1); }
+function stopMemeRotation() { if (memeTimerHandle) clearInterval(memeTimerHandle); }
