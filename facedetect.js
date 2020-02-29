@@ -6,7 +6,9 @@ module.exports = {
     const vision = require('@google-cloud/vision');
   
     // Creates a client
-    const client = new vision.ImageAnnotatorClient({private_key: 'AIzaSyAkerEkMfagbvjbPoSeFZ_jPjdMpph1EeE'});
+    const client = new vision.ImageAnnotatorClient({
+      projectId: 'bet on memes',
+      keyFile: './Demo-0fb72e26e6fb.json'});
   
     /**
      * TODO(developer): Uncomment the following line before running the sample.
