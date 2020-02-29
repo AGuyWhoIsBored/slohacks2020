@@ -1,0 +1,37 @@
+/* this is the main CSS file for formatting all of our stuff */
+
+body { background-color: lightslategray; }
+
+h1 
+{ 
+    text-align: center; 
+    color: #333333; 
+    font-size: 3em; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #333333;
+}
+
+/* styling for the meme image */
+#memeImage
+{
+    width: 500px;
+    height: 400px;
+    margin-bottom: 1em;
+    background-color: white;
+}
+/* -------------------------  */
+
+/* styling for the live webcam stream */
+#webcamStreamContainer {
+    /*margin: 0px auto;*/
+    width: 500px;
+    height: 400px;
+    border: 10px #333 solid;
+}
+#webcamVideoStream {
+    width: 500px;
+    height: 400px;
+    background-color: #666;
+}
+/* ---------------------------------- */
