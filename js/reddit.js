@@ -10,7 +10,6 @@ fetch('https://www.reddit.com/r/memes/top.json?sort=top&t=day&limit=20')
   title: post.data.title
 })))
 .then(res => res.map(render))
-.then(res => console.log(res))
 
 var slideIndex = 1;
 
@@ -35,7 +34,7 @@ function showSlides(n) {
 // incrementing and decrementing slides
 document.onkeydown = function(e) {
     e = e || window.event;
-    if (e.keyCode == '37') { plusSlides(-1) /*left <- show Prev image*/ } 
+    if (e.keyCode == '37') { plusSlides(-1) /* left <- show Prev image*/ } 
     else if (e.keyCode == '39') { plusSlides(1) /* right -> show next image */ }
 }
 
@@ -44,9 +43,7 @@ const render = post => {
     const node = document.createElement('div');
     node.className = 'mySlides fade';
     node.style = "display: none;"
-    node.innerHTML = `
-        <img src="${post.link}" style="width: 400px; height: 600px;"/>
-        `;
+    node.innerHTML = `<img src="${post.link}" style="width: 400px; height: 600px;"/>`;
     document.getElementById('memeDiv').appendChild(node);
     const dots = document.createElement('span');
     dots.className = "dot";
