@@ -42,6 +42,32 @@ function download(blob){
         var base64data = reader.result.split(',')[1];
         var bufferData = Buffer.from(base64data,'base64')
         console.log(base64data);
-        facedetect.detectFaces(bufferData);
+        return facedetect.detectFaces(bufferData);
     }
 }
+
+function snapdownload(){
+    incrementseconds();
+    return takeASnap().then(download);
+
+    
+}
+
+function incrementseconds(){
+    seconds += 1;
+}
+
+function main2(){
+happy = false;
+while(!happy){
+    var faces = snapdownload();
+    for (var i=0; i<faces.length; i++) {
+        if (!faces[i].joyLikelihood.equal('VERY_UNLIKELY') 
+        || !faces[i].joyLikelihood.equal('UNLIKELY')){
+            happy = true;
+        }
+    }}
+}
+
+
+main2();
