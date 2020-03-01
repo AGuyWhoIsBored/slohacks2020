@@ -41,28 +41,27 @@ function download(blob){
     document.body.appendChild(a);
     a.click();
 }
-function savefile(blob){
 
-}
+
+
 
 function snapdownload(){
-    takeASnap().then(savefile);
+    takeASnap();
     incrementseconds();
-    //save file
-    facedetect //if facedetect returns 'Joy is not unlikely or very unlikely', then set happy to true
+    //facedetect.detectFaces(blob); 
 }
 
 function incrementseconds(){
     seconds += 1;
 }
 
-happy = false;
-while(!happy){
-    snapdownload();
-    if (facedetect != 'VERY_UNLIKELY' or 'UNLIKELY'){
-        happy = true;
-    }
-}
-    document.body.removeChild(a);
-
-}
+// happy = false;
+// while(!happy){
+//     snapdownload();
+//     if (facedetect.detectFaces(blob).indexOf('Joy: VERY_UNLIKELY') == -1){
+//         happy = true;
+//     } else if (facedetect.detectFaces(blob).indexOf('Joy: UNLIKELy') == -1){
+//         happy = true;
+//     } 
+// }
+//     document.body.removeChild(a);
