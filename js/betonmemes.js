@@ -36,10 +36,10 @@ async function sendToVisionAPI(blob){
     }
 }
 
-async function snapSendVisionAPI(){ takeASnap().then(download); }
+async function snapSendVisionAPI(){ takeASnap().then(sendToVisionAPI); }
 
 async function main2(){
-    await snapdownload().then(() => {
+    await snapSendVisionAPI().then(() => {
         var i;
         console.log(faces);
         if(faces.length >0) { faces.sort(function(a,b){ return (a.boundingPoly.vertices[0]-b.boundingPoly.vertices[0]);}); }
@@ -54,5 +54,14 @@ async function main2(){
     }).catch();
 }
 
+
+// actual gameplay
 function startRound(interval) { gameTimerHandle = setInterval(main2, interval); }
 function stopRound() { if (gameTimerHandle) clearInterval(gameTimerHandle); }
+
+function togglePointImage(player, amount)
+{
+    var imageElement = document.getElementById(player + "." + amount);
+    if (imageElement.style.visibility = "hidden") imageElement.style.visibility = "visible";
+    else { imageElement.style.visibility = "hidden"; }
+}
