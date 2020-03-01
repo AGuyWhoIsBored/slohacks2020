@@ -1,18 +1,15 @@
+// hooks into the Google Cloud Vision API to recognize person's emotions via facial recognition
 
 module.exports = { 
   detectFaces: async function detectFaces(fileName) {
-    // [START vision_face_detection]
+
     // Imports the Google Cloud client library
     const vision = require('@google-cloud/vision');
   
     // Creates a client
     const client = new vision.ImageAnnotatorClient({
       projectId: 'bet on memes',
-      keyFile: './Demo-0fb72e26e6fb.json'});
-  
-    /**
-     * TODO(developer): Uncomment the following line before running the sample.
-     */
+      keyFile: './api/googlecloudkey.json'});
   
     const [result] = await client.faceDetection(fileName);
     const faces = result.faceAnnotations;
@@ -25,6 +22,5 @@ module.exports = {
       console.log(`    Surprise: ${face.surpriseLikelihood}`);
     });
     return faces;
-    // [END vision_face_detection]
   }
 }
