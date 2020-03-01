@@ -1,7 +1,7 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow, ipcMain} = require('electron')
-const electronDl = require('electron-dl');
-const server = require('./app');
+const {download} = require('electron-dl');
+// const server = require('./app');
 const path = require('path')
 
 let mainWindow;
@@ -14,13 +14,8 @@ function createWindow () {
     mainWindow.resizable = false
     
     // and load the index.html of the app.
-    mainWindow.loadURL('http://localhost:1500/');
-    ipcMain.on('download-item', async (event, {url}) => {
-        event.sender.send('download-success', url)
-        console.log(url)
-        const win = BrowserWindow.getFocusedWindow();
-        console.log(await download(win, url));
-      });
+    // mainWindow.loadURL('http://localhost:1500/');
+    mainWindow.loadFile('index.html');
 }
 
 // This method will be called when Electron has finished
