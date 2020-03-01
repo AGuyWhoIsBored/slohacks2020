@@ -48,7 +48,6 @@ async function snapdownload(){
 }
 
 async function main2(){
-    setTimeout(main2,1000);
     await snapdownload().then(() => {
         var i;
         console.log(faces);
@@ -59,9 +58,13 @@ async function main2(){
             console.log("Person "+ (i+1) + " Joy: " + faces[i].joyLikelihood);
             if (faces[i].joyLikelihood !="VERY_UNLIKELY"  && faces[i].joyLikelihood !="UNLIKELY"){
                 console.log("Person " + (i+1) + " is LAUGHING" );
+                stopRound();
                 return i;
             }
         }
     }).catch();
 }
+
+function startRound(interval) { gameTimerHandle = setInterval(main2, interval); }
+function stopRound() { if (gameTimerHandle) clearInterval(gameTimerHandle); }
 
