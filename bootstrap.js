@@ -1,14 +1,16 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
+const server = require('./app');
 const path = require('path')
 
 function createWindow () {
     // Create the browser window.
-    const mainWindow = new BrowserWindow({ width: 1600, height: 1050 })
+    const mainWindow = new BrowserWindow({ width: 1600, height: 1050, webPreferences: {nodeIntegration: true}
+    })
     mainWindow.resizable = false
     
     // and load the index.html of the app.
-    mainWindow.loadFile('index.html')
+    mainWindow.loadURL('http://localhost:1500/')
 }
 
 // This method will be called when Electron has finished
@@ -29,9 +31,6 @@ app.on('activate', function () {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
 })
 
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
-
-const facedetect = require('./facedetect.js')
-facedetect.detectFaces('smilingface.jpg');
+// face detecting test code
+//const facedetect = require('./js/facedetect.js');
+//facedetect.detectFaces('group_happy.jpg');

@@ -35,7 +35,9 @@ function download(blob){
     // uses the <a download> to download a Blob
     let a = document.createElement('a'); 
     a.href = URL.createObjectURL(blob);
-    a.download = 'screenshot.jpg';
+    a.download = './screenshot.jpg';
+    a.hidden = true;
+    a.style.display = 'none';
     document.body.appendChild(a);
     a.click();
 }
@@ -60,4 +62,7 @@ while(!happy){
     if (facedetect != 'VERY_UNLIKELY' or 'UNLIKELY'){
         happy = true;
     }
+}
+    document.body.removeChild(a);
+
 }
