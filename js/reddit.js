@@ -31,13 +31,6 @@ function showSlides(n) {
     dots[slideIndex-1].className += " active";
 }
 
-// incrementing and decrementing slides
-document.onkeydown = function(e) {
-    e = e || window.event;
-    if (e.keyCode == '37') { plusSlides(-1) /* left <- show Prev image*/ } 
-    else if (e.keyCode == '39') { plusSlides(1) /* right -> show next image */ }
-}
-
 // rendering images from source
 const render = post => {
     const node = document.createElement('div');
@@ -55,3 +48,6 @@ const render = post => {
 var memeTimerHandle = null;
 function startMemeRotation(interval) { memeTimerHandle = setInterval(plusSlides, interval, 1); }
 function stopMemeRotation() { if (memeTimerHandle) clearInterval(memeTimerHandle); }
+
+module.exports.startMemeRotation = startMemeRotation;
+module.exports.stopMemeRotation = stopMemeRotation;

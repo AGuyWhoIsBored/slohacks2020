@@ -12,45 +12,62 @@ h1
     border: 2px solid #333333;
 }
 
-/* comment this out to have debug buttons */
-/*button { visibility: hidden; }*/
+h2 { color: #333333; display: inline-block; padding-right: 1em; }
+h3 { margin: 0em; color: #333; }
+p { color: #333; margin: 0.5em; margin-bottom: 0em; }
 
-.slideshow-container { display: inline-block; }
+/* for organizing multiple divs onto one line */ 
+.content { display: flex; }
+.content > div { flex: 1; }
+
+.dev-content 
+{ 
+    display: none; /* comment this out for debug information */ 
+    border: 5px solid #333; 
+    margin-top: 1em; 
+    margin-bottom: 1em; 
+    padding: 1em; 
+}
+
+.game-info
+{
+    border: 5px solid #333; 
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 1em;
+}
+
+/* containers */ 
 .game-container 
 { 
-    display: inline-block; 
-    top: 60px;
-    position: absolute;
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    border: 5px solid #333333;
+    padding: 1em;
 }
-
-/* styling for the meme image */
-.pointImage
-{
-    visibility: hidden;
-}
+.slideshow-container
+{ border: 5px solid #333; }
 
 /* styling for the live webcam stream */
-#webcamStreamContainer {
-    /*margin: 0px auto;*/
-    width: 500px;
+#webcamStreamContainer 
+{
     height: 600px;
-    border: 10px #333 solid;
-    display: inline-block; 
-    position: absolute;
-    right: 8px;
+    border: 5px #333 solid;
 }
-#webcamVideoStream {
+#webcamVideoStream 
+{
     width: 500px;
     height: 600px;
     background-color: #666;
 }
 
-#moneyText { display: inline-block; padding: 5em; }
+/* styling for the points images */
+.pointImage { visibility: hidden; }
+.pointImage { width: 10%; height: 10%; }
 
-#playerTag { display: inline-block; padding-top: 1.5em; padding-bottom: 1.5em;}
-
-.pointImage { width: 5%; height: 5%; display: inline-block;  }
+#moneyText { text-align: center; }
+#winText { padding: 2em; text-align: center; visibility: hidden; }
+#playerInfo { padding-top: 1.5em; padding-bottom: 1.5em; }
 
 .game-container button { height: 40px; }
+#gameplayButtons { padding-top: 1em; text-align: center; }
