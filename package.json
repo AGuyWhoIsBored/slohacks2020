@@ -1,12 +1,12 @@
 {
-  "name": "betonmemes",
-  "version": "1.0.0",
-  "description": "SLO Hacks 2020 Bet On Memes",
+  "name": "memesupreme",
+  "version": "0.0.1",
+  "description": "Meme Supreme - SLO Hacks 2020",
   "main": "bootstrap.js",
   "scripts": {
     "start": "electron ."
   },
-  "author": "dookan",
+  "author": "dookan andrew khanh and billy",
   "devDependencies": {
     "electron": "^8.0.2"
   },
