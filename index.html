@@ -3,10 +3,10 @@
     <head>
         <title>Bet on Memes - SLO Hacks 2020</title>
         <link rel="stylesheet" type="text/css" href="css/main.css">
-        <link rel="stylesheet" type="text/css" href="css/slideshow.css">
+        <!-- <link rel="stylesheet" type="text/css" href="css/slideshow.css"> -->
     </head>
     <body>
-        <h1 id="test">Bet on Memes - SLO Hacks 2020</h1>
+        <h1>Bet on Memes - SLO Hacks 2020</h1>
         <div class="content">
             <div class="slideshow-container" id="memeDiv">
                 <div id="meme-dots" style="text-align:center"> </div>
@@ -15,11 +15,47 @@
                 <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
                 <br>
             </div>
-            <span id="webcamStreamContainer"><video autoplay="true" id="webcamVideoStream" width="500" height="400"></video></span>
-            <button disabled>Screenshot Webcam Stream</button>
-            <button onclick="startMemeRotation(5000)">Start meme rotation</button>
-            <button onclick="stopMemeRotation()">Stop meme rotation</button>
+
+            <div class="game-container">
+                <div id="moneyText">
+                    <h2>MONEY POT</h2>
+                    <h2>$0.00</h2>
+                </div>
+                <br>
+                <div>
+                    <h2 id="playerTag">Player 1:</h2>
+                    <span id="pt1">
+                        <img id="pointImage" id="1" src="laughemoji.png">
+                        <img id="pointImage" id="2" src="laughemoji.png">
+                        <img id="pointImage" id="3" src="laughemoji.png">
+                        <img id="pointImage" id="4" src="laughemoji.png">
+                        <img id="pointImage" id="5" src="laughemoji.png">    
+                    </span>
+                </div>
+
+                <div>
+                    <h2 id="playerTag">Player 2:</h2>
+                    <span id="pt2">
+                        <img id="pointImage" id="1" src="laughemoji.png">
+                        <img id="pointImage" id="2" src="laughemoji.png">
+                        <img id="pointImage" id="3" src="laughemoji.png">
+                        <img id="pointImage" id="4" src="laughemoji.png">
+                        <img id="pointImage" id="5" src="laughemoji.png">    
+                    </span>
+                </div>
+
+                <div>
+                    <button>START GAME</button>
+                    <button>PUT MONEY IN POT</button>
+                </div>
+            </div>
+
+            <div id="webcamStreamContainer"><video autoplay="true" id="webcamVideoStream" width="500" height="400"></video></div>
         </div>
+
+        <button id="saveScreenshotButton" disabled>Screenshot Webcam Stream</button>
+        <button onclick="startMemeRotation(5000)">Start meme rotation</button>
+        <button onclick="stopMemeRotation()">Stop meme rotation</button>
 
         <script src="js/betonmemes.js"></script>
         <script src="js/reddit.js"></script>

@@ -10,7 +10,7 @@ if (navigator.mediaDevices.getUserMedia) {
 .catch(function () { console.log("Something went wrong!"); }); }
 
 // trigger screenshot of webcam stream to pass to vision API
-const btn = document.querySelector('button');
+const btn = document.querySelector('#saveScreenshotButton');
 btn.disabled = false;
 btn.onclick = e => {
   takeASnap().then(download);
