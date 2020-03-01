@@ -1,14 +1,14 @@
 /* * {box-sizing:border-box}*/ 
 
 /* Slideshow container */
-.slideshow-container {
+/* .slideshow-container {
     width: 400px;
     height: 600px;
     position: relative;
     margin-left:auto;
     margin-top: 10px;
     float: left;
-}
+} */
 
 /* Hide the images by default */
 .mySlides { display: none; }

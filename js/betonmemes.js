@@ -56,13 +56,13 @@ function incrementseconds(){
     seconds += 1;
 }
 
-happy = false;
-while(!happy){
-    snapdownload();
-    if (facedetect != 'VERY_UNLIKELY' or 'UNLIKELY'){
-        happy = true;
-    }
-}
-    document.body.removeChild(a);
+// happy = false;
+// while(!happy){
+//     snapdownload();
+//     // if (facedetect != 'VERY_UNLIKELY' or 'UNLIKELY'){
+//     //     happy = true;
+//     // }
+// }
+//     document.body.removeChild(a);
 
-}
+// }
