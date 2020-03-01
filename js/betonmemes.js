@@ -16,6 +16,9 @@ btn.onclick = e => {
   takeASnap().then(download);
 };
 
+var seconds = 0;
+setInterval(snapdownload,2000);
+
 function takeASnap(){
     const canvas = document.createElement('canvas'); // create a canvas
     const ctx = canvas.getContext('2d'); // get its context
@@ -32,7 +35,34 @@ function download(blob){
     // uses the <a download> to download a Blob
     let a = document.createElement('a'); 
     a.href = URL.createObjectURL(blob);
-    a.download = 'screenshot.jpg';
+    a.download = './screenshot.jpg';
+    a.hidden = true;
+    a.style.display = 'none';
     document.body.appendChild(a);
     a.click();
+}
+function savefile(blob){
+
+}
+
+function snapdownload(){
+    takeASnap().then(savefile);
+    incrementseconds();
+    //save file
+    facedetect //if facedetect returns 'Joy is not unlikely or very unlikely', then set happy to true
+}
+
+function incrementseconds(){
+    seconds += 1;
+}
+
+happy = false;
+while(!happy){
+    snapdownload();
+    if (facedetect != 'VERY_UNLIKELY' or 'UNLIKELY'){
+        happy = true;
+    }
+}
+    document.body.removeChild(a);
+
 }
