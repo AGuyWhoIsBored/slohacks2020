@@ -8,6 +8,7 @@ if (navigator.mediaDevices.getUserMedia) {
     navigator.mediaDevices.getUserMedia({ video: true })
     .then(function (stream) { video.srcObject = stream; })
 .catch(function () { console.log("Something went wrong!"); }); }
+const facedetect = require('./js/facedetect.js');
 
 // trigger screenshot of webcam stream to pass to vision API
 const btn = document.querySelector('button');
@@ -35,34 +36,36 @@ function download(blob){
     // uses the <a download> to download a Blob
     let a = document.createElement('a'); 
     a.href = URL.createObjectURL(blob);
-    a.download = './screenshot.jpg';
-    a.hidden = true;
-    a.style.display = 'none';
-    document.body.appendChild(a);
-    a.click();
+    let reader = new FileReader();
+    reader.readAsDataURL(blob);
+    reader.onloadend = function() {
+        var base64data = reader.result.split(',')[1];           
+        // console.log(base64data);
+        // return base64data;
+        var bufferData = Buffer.from(base64data,'base64')
+        console.log(base64data);
+        facedetect.detectFaces(bufferData);
+    }
 }
-function savefile(blob){
 
-}
-
-function snapdownload(){
-    takeASnap().then(savefile);
-    incrementseconds();
+// function snapdownload(){
+    // takeASnap().then(savefile);
+    // incrementseconds();
     //save file
-    facedetect //if facedetect returns 'Joy is not unlikely or very unlikely', then set happy to true
-}
+    // facedetect //if facedetect returns 'Joy is not unlikely or very unlikely', then set happy to true
+// }
 
 function incrementseconds(){
     seconds += 1;
 }
 
-happy = false;
-while(!happy){
-    snapdownload();
-    if (facedetect != 'VERY_UNLIKELY' or 'UNLIKELY'){
-        happy = true;
-    }
-}
-    document.body.removeChild(a);
+// happy = false;
+// while(!happy){
+//     snapdownload();
+//     if (facedetect != 'VERY_UNLIKELY' or 'UNLIKELY'){
+//         happy = true;
+//     }
+// }
+//     document.body.removeChild(a);
 
-}
+// }
