@@ -1,30 +1,13 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow, ipcMain} = require('electron')
-const electronDl = require('electron-dl');
-const server = require('./app');
-const path = require('path')
-
-let mainWindow;
-
+const {app, BrowserWindow} = require('electron')
 
 function createWindow () {
     // Create the browser window.
-<<<<<<< HEAD
     const mainWindow = new BrowserWindow({ width: 1400, height: 850 })
-=======
-    const mainWindow = new BrowserWindow({ width: 1600, height: 1050, webPreferences: {nodeIntegration: true}
-    })
->>>>>>> 4ded9fa3885b5f65e78dc8ce9169aea43a40f71a
     mainWindow.resizable = false
     
     // and load the index.html of the app.
-    mainWindow.loadURL('http://localhost:1500/');
-    ipcMain.on('download-item', async (event, {url}) => {
-        event.sender.send('download-success', url)
-        console.log(url)
-        const win = BrowserWindow.getFocusedWindow();
-        console.log(await download(win, url));
-      });
+    mainWindow.loadFile('index.html')
 }
 
 // This method will be called when Electron has finished
@@ -44,7 +27,3 @@ app.on('activate', function () {
     // dock icon is clicked and there are no other windows open.
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
 })
-
-// face detecting test code
-//const facedetect = require('./js/facedetect.js');
-//facedetect.detectFaces('group_happy.jpg');
