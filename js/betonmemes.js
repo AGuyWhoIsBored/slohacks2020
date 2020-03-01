@@ -11,7 +11,7 @@ if (navigator.mediaDevices.getUserMedia) {
 const facedetect = require('./js/facedetect.js');
 
 // trigger screenshot of webcam stream to pass to vision API
-const btn = document.querySelector('button');
+const btn = document.querySelector('#saveScreenshotButton');
 btn.disabled = false;
 btn.onclick = e => {
   takeASnap().then(download);
@@ -39,33 +39,9 @@ function download(blob){
     let reader = new FileReader();
     reader.readAsDataURL(blob);
     reader.onloadend = function() {
-        var base64data = reader.result.split(',')[1];           
-        // console.log(base64data);
-        // return base64data;
+        var base64data = reader.result.split(',')[1];
         var bufferData = Buffer.from(base64data,'base64')
         console.log(base64data);
         facedetect.detectFaces(bufferData);
     }
 }
-
-// function snapdownload(){
-    // takeASnap().then(savefile);
-    // incrementseconds();
-    //save file
-    // facedetect //if facedetect returns 'Joy is not unlikely or very unlikely', then set happy to true
-// }
-
-function incrementseconds(){
-    seconds += 1;
-}
-
-// happy = false;
-// while(!happy){
-//     snapdownload();
-//     if (facedetect != 'VERY_UNLIKELY' or 'UNLIKELY'){
-//         happy = true;
-//     }
-// }
-//     document.body.removeChild(a);
-
-// }
