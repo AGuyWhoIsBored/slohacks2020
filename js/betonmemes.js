@@ -48,17 +48,20 @@ async function snapdownload(){
 }
 
 async function main2(){
-    setTimeout(main2,2000);
+    setTimeout(main2,1000);
     await snapdownload().then(() => {
         var i;
         console.log(faces);
+        if(faces.length >0){
+            faces.sort(function(a,b){return (a.boundingPoly.vertices[0]-b.boundingPoly.vertices[0]);});
+        }
         for (i=0; i<faces.length; i++) {
-            console.log("Person "+ i + " Joy: " + faces[i].joyLikelihood);
+            console.log("Person "+ (i+1) + " Joy: " + faces[i].joyLikelihood);
             if (faces[i].joyLikelihood !="VERY_UNLIKELY"  && faces[i].joyLikelihood !="UNLIKELY"){
-                console.log("Person " + i+1 + " is LAUGHING" );
+                console.log("Person " + (i+1) + " is LAUGHING" );
                 return i;
             }
         }
     }).catch();
 }
-main2();
+
