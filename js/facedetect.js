@@ -2,7 +2,6 @@
 
 module.exports = { 
   detectFaces: async function detectFaces(fileName) {
-
     // Imports the Google Cloud client library
     const vision = require('@google-cloud/vision');
   
@@ -15,11 +14,11 @@ module.exports = {
     const faces = result.faceAnnotations;
     console.log('Faces:');
     faces.forEach((face, i) => {
-      console.log(`  Face #${i + 1}:`);
-      console.log(`    Joy: ${face.joyLikelihood}`);
-      console.log(`    Anger: ${face.angerLikelihood}`);
-      console.log(`    Sorrow: ${face.sorrowLikelihood}`);
-      console.log(`    Surprise: ${face.surpriseLikelihood}`);
+      // console.log(`  Face #${i + 1}:`);
+      // console.log(`    Joy: ${face.joyLikelihood}`);
+      // console.log(`    Anger: ${face.angerLikelihood}`);
+      // console.log(`    Sorrow: ${face.sorrowLikelihood}`);
+      // console.log(`    Surprise: ${face.surpriseLikelihood}`);
     });
     return faces;
   }
