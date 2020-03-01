@@ -17,10 +17,7 @@ btn.onclick = e => {
   takeASnap().then(download);
 };
 
-var seconds = 0;
-setInterval(snapdownload,2000);
-
-function takeASnap(){
+async function takeASnap(){
     const canvas = document.createElement('canvas'); // create a canvas
     const ctx = canvas.getContext('2d'); // get its context
     canvas.width = video.videoWidth; // set its size to the one of the video
@@ -31,8 +28,9 @@ function takeASnap(){
     });
 }
 
+var faces;
 // download screenshot that was taken 
-function download(blob){
+async function download(blob){
     // uses the <a download> to download a Blob
     let a = document.createElement('a'); 
     a.href = URL.createObjectURL(blob);
@@ -41,33 +39,26 @@ function download(blob){
     reader.onloadend = function() {
         var base64data = reader.result.split(',')[1];
         var bufferData = Buffer.from(base64data,'base64')
-        console.log(base64data);
-        return facedetect.detectFaces(bufferData);
+        facedetect.detectFaces(bufferData).then(faceData => faces = faceData);
     }
 }
 
-function snapdownload(){
-    incrementseconds();
-    return takeASnap().then(download);
-
-    
+async function snapdownload(){
+    takeASnap().then(download);
 }
 
-function incrementseconds(){
-    seconds += 1;
-}
-
-function main2(){
-happy = false;
-while(!happy){
-    var faces = snapdownload();
-    for (var i=0; i<faces.length; i++) {
-        if (!faces[i].joyLikelihood.equal('VERY_UNLIKELY') 
-        || !faces[i].joyLikelihood.equal('UNLIKELY')){
-            happy = true;
+async function main2(){
+    setTimeout(main2,2000);
+    await snapdownload().then(() => {
+        var i;
+        console.log(faces);
+        for (i=0; i<faces.length; i++) {
+            console.log("Person "+ i + " Joy: " + faces[i].joyLikelihood);
+            if (faces[i].joyLikelihood !="VERY_UNLIKELY"  && faces[i].joyLikelihood !="UNLIKELY"){
+                console.log("Person " + i+1 + " is LAUGHING" );
+                return i;
+            }
         }
-    }}
+    }).catch();
 }
-
-
 main2();
